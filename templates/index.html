@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="board">
+    {% for row in board %}
+    <tr>
+        {% for cell in row %}
+        <td>{{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<form id="word-guess-form" action="/">
+    <label for="word-guess">Guess A Word</label>
+    <input type="text" name="word-guess">
+    <span><button>Submit</button></span>
+</form>
+<br>
+<div>{{word}}</div>
+
+{% endblock %}
