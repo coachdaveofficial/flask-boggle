@@ -16,11 +16,11 @@ def home_page():
 
     return render_template('index.html', board=session["board"])
 
-@app.route('/word-check', methods=["POST"])
+@app.route('/word-check/', methods=["POST"])
 def word_check():
     word = request.args['word-guess']
 
-    return render_template('index.html', board=session["board"], word='test')
+    return render_template('index.html', board=session["board"], word=word)
 
 # def handle_word(board, word):
 #    result = boggle_game(board, word)
