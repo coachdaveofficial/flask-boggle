@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<span>High Score:</span><div id="high-score"></div>
+<span>Score:</span><div id="score-board"></div>
+
+<br>
+<div class="timer"></div>
+<br>
 <table class="board">
     {% for row in board %}
     <tr>
@@ -12,12 +18,15 @@
 </table>
 
 <br>
-<form id="word-guess-form" action="/word-check" method="POST">
+<form id="word-guess-form" action="/word-check">
     <label for="word-guess">Guess A Word</label>
-    <input type="text" name="word-guess">
+    <input type="text" name="word-guess" id="word-guess">
     <span><button>Submit</button></span>
 </form>
 <br>
-<div>{{word}}</div>
+<button id="start-timer">Start Game</button>
+<br>
+<div id="response">{{word}}</div>
+
 
 {% endblock %}
