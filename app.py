@@ -1,3 +1,4 @@
+from xml.etree.ElementTree import tostring
 from flask import Flask, request, render_template, session, jsonify
 from boggle import Boggle
 from flask_debugtoolbar import DebugToolbarExtension
@@ -12,7 +13,7 @@ boggle_game = Boggle()
 @app.route('/')
 def home_page():
     session["board"] = boggle_game.make_board()
-    session['scores'] = []
+    # session['scores'] = []
     
 
     return render_template('index.html', board=session["board"])
@@ -21,6 +22,8 @@ def home_page():
 def word_check():
     word = request.args['word']
     board = session["board"]
+    session.get('high_score', 0)
+    session.get('num_plays', 0)
     
 
     response = boggle_game.check_valid_word(board, word)
@@ -30,5 +33,19 @@ def word_check():
 @app.route('/new-score/')
 def new_score():
     new_score = request.args['score']
-    session['new_score'] = new_score
-    return jsonify(score = new_score)
+    num_plays = session.get('num_plays', 0)
+    num_plays += 1
+    session['num_plays'] = num_plays
+    # if no current score, set score to 0
+    if new_score is '':
+        new_score = 0
+    high_score = max(int(new_score), int(session.get('high_score', 0)))
+    session['high_score'] = high_score
+
+
+    print(session['high_score'])
+
+    
+
+    return jsonify(score = new_score, highscore = high_score, num_plays = num_plays)
+

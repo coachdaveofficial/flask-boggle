@@ -2,6 +2,7 @@
 
 {% block content %}
 <span>High Score:</span><div id="high-score"></div>
+<span>Times Played:</span><div id="num-plays"></div>
 <span>Score:</span><div id="score-board"></div>
 
 <br>
@@ -18,7 +19,7 @@
 </table>
 
 <br>
-<form id="word-guess-form" action="/word-check">
+<form id="word-guess-form" action="/word-check" style="display: none;">
     <label for="word-guess">Guess A Word</label>
     <input type="text" name="word-guess" id="word-guess">
     <span><button>Submit</button></span>
