@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<span>High Score:</span><div id="high-score"></div>
-<span>Times Played:</span><div id="num-plays"></div>
-<span>Score:</span><div id="score-board"></div>
+<h3>
+    <div class="game-data">
+        <span>High Score:</span><div id="high-score"></div>
+    </div>
+    <div class="game-data">
+        <span>Times Played:</span><div id="num-plays"></div>
+    </div>
+    <div class="game-data">
+        <span>Score:</span><div id="score-board"></div>
+    </div>
+        
+        
+    
+    
+</h3> 
 
 <br>
-<div class="timer"></div>
+<div id="timer-container">
+    <span>Time Left:<div class="timer"></div></span>
+</div>
+
 <br>
 <table class="board">
     {% for row in board %}
@@ -19,13 +34,20 @@
 </table>
 
 <br>
-<form id="word-guess-form" action="/word-check" style="display: none;">
-    <label for="word-guess">Guess A Word</label>
-    <input type="text" name="word-guess" id="word-guess">
-    <span><button>Submit</button></span>
-</form>
+<div class="form-container">
+    <form id="word-guess-form" action="/word-check" style="display: none;">
+        <label for="word-guess">Guess A Word</label>
+        <input type="text" name="word-guess" id="word-guess">
+        <span><button>Submit</button></span>
+    </form>
+</div>
 <br>
-<button id="start-timer">Start Game</button>
+<div class="button-container">
+    <div class="button-center">
+        <button id="start-timer" class="button-startgame">Start Game</button>
+    </div>
+</div>
+
 <br>
 <div id="response">{{word}}</div>
 
