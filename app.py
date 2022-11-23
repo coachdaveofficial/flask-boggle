@@ -3,6 +3,7 @@ from flask import Flask, request, render_template, session, jsonify
 from boggle import Boggle
 from flask_debugtoolbar import DebugToolbarExtension
 
+
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "secret_boggle_game"
 toolbar = DebugToolbarExtension(app)
@@ -37,7 +38,7 @@ def new_score():
     num_plays += 1
     session['num_plays'] = num_plays
     # if no current score, set score to 0
-    if new_score is '':
+    if new_score == '':
         new_score = 0
     high_score = max(int(new_score), int(session.get('high_score', 0)))
     session['high_score'] = high_score

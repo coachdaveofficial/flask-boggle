@@ -1,3 +1,7 @@
+body {
+  margin: 8px;
+}
+
 td,
 th {
     border: 1px solid rgb(190, 190, 190);
@@ -27,7 +31,8 @@ caption {
 }
 
 table {
-    align-content: center;
+    align-content:center;
+    margin-top: -150px;
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
@@ -63,23 +68,39 @@ table {
 
 #timer-container {
 
-        background-color: #c2fbd7;
-        border-radius: 100px;
-        box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-        color: green;
+        background-color: aquamarine;
+        border-radius: 50px;
+        border-style: double;
+        
+        color: black;
         display: inline-block;
         font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-        padding: 7px 20px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
-        transition: all 250ms;
+        
         border: 0;
-        font-size: 50px;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-      
+        font-size: 50px;      
 }
+
+#response {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30%;
+  /* background-color: blueviolet; */
+  color: white;
+  border-radius: 10px;
+  border-spacing: 10px;
+  margin: 8px;
+  padding: 10px 20px;
+  /* background-clip:border-box; */
+
+  text-align: center;
+  font-size: 25px;
+}
+
+
+
 #score-board{
     
    padding-left: 5%;
@@ -120,6 +141,7 @@ table {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+
   }
   
   .button-startgame:hover {
@@ -141,6 +163,7 @@ table {
     padding: 7px 20px;
     text-align: center;
     text-decoration: none;
+
     
   }
   form button {

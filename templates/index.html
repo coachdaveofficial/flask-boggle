@@ -17,7 +17,7 @@
     
 </h3> 
 
-<br>
+
 <div id="timer-container">
     <span>Time Left:<div class="timer"></div></span>
 </div>
@@ -33,7 +33,7 @@
     {% endfor %}
 </table>
 
-<br>
+
 <div class="form-container">
     <form id="word-guess-form" action="/word-check" style="display: none;">
         <label for="word-guess">Guess A Word</label>
@@ -41,15 +41,16 @@
         <span><button>Submit</button></span>
     </form>
 </div>
-<br>
+
 <div class="button-container">
     <div class="button-center">
         <button id="start-timer" class="button-startgame">Start Game</button>
     </div>
 </div>
+<div class="response-container">
+    <div id="response" style="display: none";>{{word}}</div>
+</div>
 
-<br>
-<div id="response">{{word}}</div>
 
 
 {% endblock %}

@@ -89,6 +89,11 @@ async function wordSubmit(evt) {
         console.log(response.data['result'])
         let result = checkValidWord(wordGuess, response.data['result']);
         $responseDiv.show();
+
+        // set background-color
+        $responseDiv.css('background-color', 'blueviolet')
+
+
         $responseDiv.text(result);
         wordInput.val('');
     }

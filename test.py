@@ -27,13 +27,21 @@ class FlaskTests(TestCase):
             self.assertEqual(session['num_plays'], 999)
     # test that submitting a score as a query string returns the appropriate response
     def test_score_submit(self):
+        
+
         with app.test_client() as client:
+            with client.session_transaction() as change_session:
+                change_session['high_score'] = 5
+                change_session['num_plays'] = 999
             resp = client.get('/new-score/?score=10')
             json = resp.get_data(as_text=True)
 
+
+            self.assertEqual(session['high_score'], 10)
+            self.assertEqual(session['num_plays'], 1000)
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('"score": "10"', json)
-            self.assertIn('"num_plays": 1', json)
+            self.assertIn('"score":"10"', json)
+            self.assertIn('"num_plays":1', json)
     # test that response is ok if word is on board
     def test_word_check(self):
         with app.test_client() as client:
@@ -48,5 +56,5 @@ class FlaskTests(TestCase):
             json = resp.get_data(as_text=True)
 
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('"result": "ok"', json)
+            self.assertIn('"result":"ok"', json)
 
